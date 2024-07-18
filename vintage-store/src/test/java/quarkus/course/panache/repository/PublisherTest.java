@@ -12,11 +12,18 @@ class PublisherTest {
     @Test
     @TestTransaction
     public void shouldCreateAndFindAPublisher() {
+        var count = Publisher.count();
+        var listAll = Publisher.listAll().size();
         Publisher publisher = new Publisher("Packet");
         publisher.persist();
+
+        assertEquals(count + 1, Publisher.count());
 
         Publisher foundPublisher = Publisher.findById(publisher.id);
         assertNotNull(foundPublisher);
         assertEquals("Packet", foundPublisher.name);
+
+        Publisher.deleteById(publisher.id);
+        assertEquals(count, Publisher.count());
     }
 }
