@@ -20,6 +20,7 @@ class ArtistRepositoryTest {
         var count = artistRepository.count();
         var listAll = artistRepository.listAll().size();
         assertEquals(count, listAll);
+        assertEquals(artistRepository.listAllArtistsSorted().size(), listAll);
         Artist artist = new Artist("John Doe", "bio");
         artistRepository.persist(artist);
 
