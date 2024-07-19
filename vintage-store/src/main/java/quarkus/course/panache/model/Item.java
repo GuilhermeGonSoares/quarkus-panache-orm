@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
-@Table(name = "t_item")
+@Table(name = "t_items")
 public class Item extends PanacheEntity {
     @Column(length = 100, nullable = false)
     public String title;
